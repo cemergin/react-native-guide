@@ -2,7 +2,7 @@
 
 > Small improvements compound. Each optimization reduces jank, re-renders, or wasted work.
 
-[← Dependencies](./dependency-management.md) | [Index](./README.md) | [Profiling →](./profiling-debugging.md)
+[← Dependencies](./dependency-management.md) | [Index](../README.md) | [Profiling →](./profiling-debugging.md)
 
 **Keywords**: animation, useNativeDriver, Reanimated, useMemo, useCallback, React.memo, re-render, FlashList, FlatList, view recycling, React Query, Redux, data fetching, startup, TTI, cold start
 
@@ -155,7 +155,7 @@ const { data, isLoading } = useQuery(['userData', userId], () => fetchUserData(u
 - Offline-first data needing persistence
 - Global UI state (modals, toasts, navigation)
 - Complex state machines with interdependencies
-- **Expensify's approach**: They built [react-native-onyx](https://github.com/Expensify/react-native-onyx) — an offline-first state layer. See [Reading List](./reading-list.md).
+- **Expensify's approach**: They built [react-native-onyx](https://github.com/Expensify/react-native-onyx) — an offline-first state layer. See [Reading List](../reading-list.md).
 
 ---
 
@@ -183,7 +183,7 @@ if (__DEV__) return <NetworkLoggerButton />;
 return null;
 ```
 
-> **See also**: [Native Debugging Guide](./native-layer-debugging-guide.md#56-flipper-is-dead--use-these-instead) for Flipper replacements including `react-native-network-logger`
+> **See also**: [Native Debugging Guide](../debugging/native-layer-debugging.md#56-flipper-is-dead--use-these-instead) for Flipper replacements including `react-native-network-logger`
 
 ---
 
@@ -200,7 +200,7 @@ return null;
 
 ---
 
-> **See also**: [Profiling Tools Deep Dive](./profiling-tools-deep-dive.md) for measuring list and rendering performance with Flashlight
+> **See also**: [Profiling Tools Deep Dive](../debugging/profiling-tools-deep-dive.md) for measuring list and rendering performance with Flashlight
 
 **Next**: [Profiling & Debugging →](./profiling-debugging.md)
 

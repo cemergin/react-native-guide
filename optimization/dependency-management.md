@@ -2,7 +2,7 @@
 
 > Every `yarn add` is a long-term maintenance commitment. Be intentional.
 
-[← New Architecture](./new-architecture-migration.md) | [Index](./README.md) | [Performance →](./performance-rendering.md)
+[← New Architecture](./new-architecture-migration.md) | [Index](../README.md) | [Performance →](./performance-rendering.md)
 
 **Keywords**: depcheck, bundle size, yarn why, library, alternative, Day.js, Moment, Lottie, Rive, tree-shaking, custom code
 
@@ -130,7 +130,7 @@ When auditing your app's dependencies, watch for these common issues:
 - **Barely-used heavy libraries** — if a library like FastImage is only used in one place, consider whether the standard `Image` component suffices. Unnecessary image libraries on list screens can be a memory pressure source
 - **No ABI splits configured** — universal APKs bundle all architectures, increasing size unnecessarily
 
-> **See also**: [Profiling: Bundle Size](./profiling-debugging.md#bundle-size) for analysis tools | [SIGABRT guide](./SIGABRT-libc-debugging-guide.md) for memory-reducing swaps
+> **See also**: [Profiling: Bundle Size](./profiling-debugging.md#bundle-size) for analysis tools | [SIGABRT guide](../debugging/crash-analysis.md) for memory-reducing swaps
 
 ---
 

@@ -1,4 +1,4 @@
-[← Back to Index](./README.md)
+[← Back to Index](../README.md)
 
 # Native-Layer Debugging & Optimization Guide for React Native / Expo
 
@@ -1406,7 +1406,7 @@ These are the most frequent problems developers encounter when setting up native
 
 | Guide | Relationship |
 |-------|-------------|
-| [SIGABRT & libc Debugging](./SIGABRT-libc-debugging-guide.md) | Complementary guide — use this for root cause analysis of crashes found while profiling with the tools described here |
+| [SIGABRT & libc Debugging](./crash-analysis.md) | Complementary guide — use this for root cause analysis of crashes found while profiling with the tools described here |
 | [Profiling Tools Deep Dive](./profiling-tools-deep-dive.md) | Decision framework for when to use each tool — helps you choose between the tools documented here |
-| [Architecture & Lifecycle](./react-native-architecture-lifecycle.md) | Foundation for understanding the threading model and native layers you're profiling |
-| [Profiling & Debugging](./profiling-debugging.md) | JS-level profiling (React DevTools, Flashlight) that complements the native-level tools here |
+| [Architecture & Lifecycle](../foundation/architecture-lifecycle.md) | Foundation for understanding the threading model and native layers you're profiling |
+| [Profiling & Debugging](../optimization/profiling-debugging.md) | JS-level profiling (React DevTools, Flashlight) that complements the native-level tools here |

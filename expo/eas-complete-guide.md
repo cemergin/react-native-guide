@@ -1,4 +1,4 @@
-[← Back to Index](./README.md)
+[← Back to Index](../README.md)
 
 # The Definitive EAS (Expo Application Services) Guide
 
@@ -1922,6 +1922,6 @@ On paid plans, if you exceed your monthly credit allocation:
 
 | Guide | Relationship |
 |-------|-------------|
-| [Expo App Config Decision Guide](./expo-app-config-decision-guide.md) | Companion guide — every app.config.ts and eas.json property explained with WHAT/WHY/TRADE-OFFS |
-| [Monitoring & ANR Analysis](./monitoring-anr-analysis.md) | Post-deploy monitoring setup — crash reporting integration with EAS builds |
-| [Upgrading React Native](./upgrading-react-native.md) | Version upgrade strategy that affects EAS build configuration |
+| [Expo App Config Decision Guide](./app-config-decision-guide.md) | Companion guide — every app.config.ts and eas.json property explained with WHAT/WHY/TRADE-OFFS |
+| [Monitoring & ANR Analysis](../optimization/monitoring-anr-analysis.md) | Post-deploy monitoring setup — crash reporting integration with EAS builds |
+| [Upgrading React Native](../optimization/upgrading-react-native.md) | Version upgrade strategy that affects EAS build configuration |

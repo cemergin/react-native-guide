@@ -2,7 +2,7 @@
 
 > The React Native ecosystem moves fast. This guide maps the current landscape — what's standard, what's emerging, and what to choose for your next project.
 
-[← Back to Index](./README.md)
+[← Back to Index](../README.md)
 
 **Keywords**: Expo Router, Zustand, Jotai, Legend State, React Query, TanStack Query, tRPC, MMKV, offline-first, file-based routing, state management, data fetching, architecture patterns, React Compiler
 
@@ -78,7 +78,7 @@ React Navigation remains the foundation under Expo Router, and v7 is fully compa
 </Tabs>
 ```
 
-> **See also**: [Performance: Startup](./profiling-debugging.md#startup-optimization) for lazy navigation impact on cold start
+> **See also**: [Performance: Startup](../optimization/profiling-debugging.md#startup-optimization) for lazy navigation impact on cold start
 
 ---
 
@@ -220,7 +220,7 @@ const tasks$ = observable(
 
 Redux Toolkit is still the right choice for large enterprise codebases where strict action/reducer patterns aid team coordination. But for new projects in 2026, it's rarely chosen.
 
-**Migration path** (from the [Performance guide](./performance-rendering.md#data-fetching)):
+**Migration path** (from the [Performance guide](../optimization/performance-rendering.md#data-fetching)):
 1. Install TanStack Query for all new API calls
 2. Use Zustand for new client state
 3. Migrate existing screens when they need changes anyway
@@ -427,7 +427,7 @@ The React Compiler auto-memoizes components at compile time — eliminating the 
 
 As of January 2026, ~83% of SDK 54 projects built with EAS Build use React Compiler.
 
-> **See also**: [React Compiler](./profiling-debugging.md#react-compiler) | [Performance: Memoization](./performance-rendering.md#memoization) for when you still need manual memoization
+> **See also**: [React Compiler](../optimization/profiling-debugging.md#react-compiler) | [Performance: Memoization](../optimization/performance-rendering.md#memoization) for when you still need manual memoization
 
 ### Pattern 4: MMKV Over AsyncStorage
 
@@ -459,7 +459,7 @@ export const zustandStorage = {
 - **Faster** — 30x read/write performance
 - **Smaller** — binary storage vs JSON serialization
 
-> **See also**: [SIGABRT Guide](SIGABRT-libc-debugging-guide.md) for AsyncStorage security concerns (unencrypted backups)
+> **See also**: [SIGABRT Guide](../debugging/crash-analysis.md) for AsyncStorage security concerns (unencrypted backups)
 
 ---
 
@@ -529,12 +529,12 @@ React Compiler is rapidly becoming standard:
 
 | Guide | Relationship |
 |-------|-------------|
-| [Performance & Rendering](./performance-rendering.md) | Optimization patterns for animations, lists, memoization, and React Query adoption |
-| [Profiling Tools Deep Dive](./profiling-tools-deep-dive.md) | When and how to profile the patterns described here |
-| [Dependency Management](./dependency-management.md) | Evaluating and managing the libraries in this stack |
-| [New Architecture Deep Dive](./new-architecture-migration.md) | The New Architecture that enables many of these modern patterns |
-| [Expo EAS Complete Guide](expo-eas-complete-guide.md) | Build and deploy pipeline for Expo projects |
-| [Expo App Config Decision Guide](expo-app-config-decision-guide.md) | Configuration reference for the Expo features discussed here |
+| [Performance & Rendering](../optimization/performance-rendering.md) | Optimization patterns for animations, lists, memoization, and React Query adoption |
+| [Profiling Tools Deep Dive](../debugging/profiling-tools-deep-dive.md) | When and how to profile the patterns described here |
+| [Dependency Management](../optimization/dependency-management.md) | Evaluating and managing the libraries in this stack |
+| [New Architecture Deep Dive](../optimization/new-architecture-migration.md) | The New Architecture that enables many of these modern patterns |
+| [Expo EAS Complete Guide](../expo/eas-complete-guide.md) | Build and deploy pipeline for Expo projects |
+| [Expo App Config Decision Guide](../expo/app-config-decision-guide.md) | Configuration reference for the Expo features discussed here |
 
 ---
 

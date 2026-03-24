@@ -2,7 +2,7 @@
 
 > Curated from engineering blogs by real practitioners. Every link verified March 2026.
 
-[← Profiling](./profiling-debugging.md) | [Index](./README.md)
+[← Profiling](./optimization/profiling-debugging.md) | [Index](./README.md)
 
 **Keywords**: articles, blogs, Shopify, Discord, Callstack, BAM, Sentry, Expensify, Oscar Franco, Flashlight, FlashList
 

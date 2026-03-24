@@ -1,4 +1,4 @@
-[← Back to Index](./README.md)
+[← Back to Index](../README.md)
 
 # SIGABRT / libc.so Crash Debugging Guide for React Native Android
 
@@ -1485,7 +1485,7 @@ After completing the audit, fill in this template to track your findings:
 
 | Guide | Relationship |
 |-------|-------------|
-| [Native-Layer Debugging](./native-layer-debugging-guide.md) | Complementary guide — use this for profiling tools (Memory Profiler, CPU Profiler, Perfetto, ASan) to investigate crashes identified here |
+| [Native-Layer Debugging](./native-layer-debugging.md) | Complementary guide — use this for profiling tools (Memory Profiler, CPU Profiler, Perfetto, ASan) to investigate crashes identified here |
 | [Profiling Tools Deep Dive](./profiling-tools-deep-dive.md) | When crash analysis points to memory or CPU issues — comprehensive tool selection framework |
-| [Architecture & Lifecycle](./react-native-architecture-lifecycle.md) | Understanding the threading model and memory model that underlie the crash patterns described here |
-| [Monitoring & ANR Analysis](./monitoring-anr-analysis.md) | Production monitoring setup that surfaces the crashes this guide helps you debug |
+| [Architecture & Lifecycle](../foundation/architecture-lifecycle.md) | Understanding the threading model and memory model that underlie the crash patterns described here |
+| [Monitoring & ANR Analysis](../optimization/monitoring-anr-analysis.md) | Production monitoring setup that surfaces the crashes this guide helps you debug |

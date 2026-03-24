@@ -2,7 +2,7 @@
 
 > Synthesized from production migration stories at Shopify, Discord, and A Million Monkeys.
 
-[← Upgrading](./upgrading-react-native.md) | [Index](./README.md) | [Dependencies →](./dependency-management.md)
+[← Upgrading](./upgrading-react-native.md) | [Index](../README.md) | [Dependencies →](./dependency-management.md)
 
 **Keywords**: JSI, Fabric, TurboModules, New Architecture, migration, bridge, codegen, NativeModules, state batching, view flattening, rollout, Reanimated
 
@@ -183,7 +183,7 @@ Framework bugs like ReactHostImpl assertion errors and NativeAnimatedNodes race 
 
 ---
 
-> **See also**: [Architecture & Lifecycle Guide](./react-native-architecture-lifecycle.md) for foundational architecture concepts
+> **See also**: [Architecture & Lifecycle Guide](../foundation/architecture-lifecycle.md) for foundational architecture concepts
 
 **Next**: [Dependency Management →](./dependency-management.md)
 

@@ -1,4 +1,4 @@
-[← Back to Index](./README.md)
+[← Back to Index](../README.md)
 
 # Expo & EAS Configuration Decision Guide
 
@@ -1971,6 +1971,6 @@ curl -I https://yourapp.com/.well-known/apple-app-site-association
 
 | Guide | Relationship |
 |-------|-------------|
-| [Expo EAS Complete Guide](./expo-eas-complete-guide.md) | Companion guide — EAS Build, Submit, Update pipeline that uses the configuration documented here |
-| [Dependency Management](./dependency-management.md) | Library audit process — affects expo-build-properties and plugin configuration |
-| [New Architecture Deep Dive](./new-architecture-migration.md) | New Architecture enablement that changes build configuration documented here |
+| [Expo EAS Complete Guide](./eas-complete-guide.md) | Companion guide — EAS Build, Submit, Update pipeline that uses the configuration documented here |
+| [Dependency Management](../optimization/dependency-management.md) | Library audit process — affects expo-build-properties and plugin configuration |
+| [New Architecture Deep Dive](../optimization/new-architecture-migration.md) | New Architecture enablement that changes build configuration documented here |

@@ -1,4 +1,4 @@
-[← Back to Index](./README.md)
+[← Back to Index](../README.md)
 
 # React Native Architecture & Lifecycle Deep Dive
 
@@ -1768,7 +1768,7 @@ either platform, Hermes maintains consistent behavior across iOS and Android.
 
 | Guide | Relationship |
 |-------|-------------|
-| [New Architecture Deep Dive](./new-architecture-migration.md) | Migration playbook with Shopify/Discord production metrics — practical application of the architecture concepts covered here |
-| [SIGABRT & libc Debugging](./SIGABRT-libc-debugging-guide.md) | When architecture-level issues cause native crashes — signal analysis and root cause framework |
-| [Native-Layer Debugging](./native-layer-debugging-guide.md) | Profiling tools for the native layer described in this guide — Android Studio, Xcode, Perfetto |
-| [Profiling Tools Deep Dive](./profiling-tools-deep-dive.md) | Decision framework for choosing the right profiling tool at each architecture layer |
+| [New Architecture Deep Dive](../optimization/new-architecture-migration.md) | Migration playbook with Shopify/Discord production metrics — practical application of the architecture concepts covered here |
+| [SIGABRT & libc Debugging](../debugging/crash-analysis.md) | When architecture-level issues cause native crashes — signal analysis and root cause framework |
+| [Native-Layer Debugging](../debugging/native-layer-debugging.md) | Profiling tools for the native layer described in this guide — Android Studio, Xcode, Perfetto |
+| [Profiling Tools Deep Dive](../debugging/profiling-tools-deep-dive.md) | Decision framework for choosing the right profiling tool at each architecture layer |

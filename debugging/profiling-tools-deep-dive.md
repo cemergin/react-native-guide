@@ -2,7 +2,7 @@
 
 > Profile before you optimize. The right tool for the right layer saves hours of guesswork.
 
-[← Back to Index](./README.md)
+[← Back to Index](../README.md)
 
 **Keywords**: profiling, memory, CPU, Android Studio, Xcode Instruments, Perfetto, Hermes, heapprofd, Tracy, Flashlight, flamegraph, heap dump, allocation tracking, Time Profiler, Leaks
 
@@ -87,7 +87,7 @@ Not every performance issue requires profiling tools. Use this decision framewor
 | **Google Play Console** | Android Vitals, device segmentation, Gemini AI analysis | Android-specific production metrics |
 | **Datadog** | APM, error tracking, full-stack correlation | Enterprise production monitoring |
 
-> **See also**: [Monitoring & ANR Analysis](./monitoring-anr-analysis.md) for production monitoring setup
+> **See also**: [Monitoring & ANR Analysis](../optimization/monitoring-anr-analysis.md) for production monitoring setup
 
 ---
 
@@ -330,7 +330,7 @@ CPU profiling helps you find what's consuming processing time — whether it's J
 - "Parent rendered" → Add `React.memo` to prevent unnecessary cascading
 - "Context changed" → Split context or memoize context value
 
-> **See also**: [Performance: Memoization](./performance-rendering.md#memoization) for fixes | [React Compiler](./profiling-debugging.md#react-compiler) to auto-fix
+> **See also**: [Performance: Memoization](../optimization/performance-rendering.md#memoization) for fixes | [React Compiler](../optimization/profiling-debugging.md#react-compiler) to auto-fix
 
 ### Android Native CPU Profiling
 
@@ -458,7 +458,7 @@ jobs:
 
 **Threshold**: Alert if FPS drops >10% or CPU increases >10% from baseline.
 
-> **See also**: [Profiling & Debugging: Flashlight](./profiling-debugging.md#flashlight) for more details | [Reading List #11-12](./reading-list.md) for BAM's articles
+> **See also**: [Profiling & Debugging: Flashlight](../optimization/profiling-debugging.md#flashlight) for more details | [Reading List #11-12](../reading-list.md) for BAM's articles
 
 ---
 
@@ -519,7 +519,7 @@ jobs:
 2. If OOM → Android Studio Memory Profiler on a 3-4GB RAM device → watch peak memory
 3. If peak memory >300MB → audit image sizes, video buffers, cached data
 4. If SIGSEGV → enable ASan build → reproduce → ASan will pinpoint the exact line
-5. Cross-reference with [SIGABRT Debugging Guide](./SIGABRT-libc-debugging-guide.md) for root cause categories
+5. Cross-reference with [SIGABRT Debugging Guide](./crash-analysis.md) for root cause categories
 
 ---
 
@@ -564,15 +564,15 @@ Avoid these common mistakes when profiling:
 
 | Guide | Relationship |
 |-------|-------------|
-| [Native-Layer Debugging Guide](./native-layer-debugging-guide.md) | Step-by-step walkthroughs for Android Studio, Xcode Instruments, Perfetto, ASan |
-| [SIGABRT & libc Debugging Guide](./SIGABRT-libc-debugging-guide.md) | Root cause framework for native crashes found during profiling |
-| [Profiling & Debugging](./profiling-debugging.md) | JS-level profiling (React DevTools, Flashlight, bundle analysis, Discord case studies) |
-| [Performance & Rendering](./performance-rendering.md) | Optimization patterns to apply after profiling identifies the bottleneck |
-| [Monitoring & ANR Analysis](./monitoring-anr-analysis.md) | Production monitoring that tells you WHEN to profile |
+| [Native-Layer Debugging Guide](./native-layer-debugging.md) | Step-by-step walkthroughs for Android Studio, Xcode Instruments, Perfetto, ASan |
+| [SIGABRT & libc Debugging Guide](./crash-analysis.md) | Root cause framework for native crashes found during profiling |
+| [Profiling & Debugging](../optimization/profiling-debugging.md) | JS-level profiling (React DevTools, Flashlight, bundle analysis, Discord case studies) |
+| [Performance & Rendering](../optimization/performance-rendering.md) | Optimization patterns to apply after profiling identifies the bottleneck |
+| [Monitoring & ANR Analysis](../optimization/monitoring-anr-analysis.md) | Production monitoring that tells you WHEN to profile |
 
 ---
 
-**See also**: [Native-Layer Debugging Guide](./native-layer-debugging-guide.md) for detailed tool walkthroughs | [Monitoring](./monitoring-anr-analysis.md) for production metrics that trigger profiling
+**See also**: [Native-Layer Debugging Guide](./native-layer-debugging.md) for detailed tool walkthroughs | [Monitoring](../optimization/monitoring-anr-analysis.md) for production metrics that trigger profiling
 
 Sources:
 - [Sentry: RN Performance Tactics](https://blog.sentry.io/react-native-performance-strategies-tools/)

@@ -2,7 +2,7 @@
 
 > **Start here.** Before optimizing anything, understand where and why your app fails.
 
-[Index](./README.md) | Next: [Upgrading RN →](./upgrading-react-native.md)
+[Index](../README.md) | Next: [Upgrading RN →](./upgrading-react-native.md)
 
 **Keywords**: ANR, crash, Crashlytics, Sentry, Google Play Console, crash-free rate, device segmentation, monitoring, tombstone, SIGABRT, SIGSEGV
 
@@ -47,12 +47,12 @@ Break crashes down across three axes:
 
 | Crash Type | Likely Cause | Action |
 |-----------|-------------|--------|
-| Native crash (`libc.so`, `__strlen_aarch64`) | Native module or system-level bug | See [SIGABRT debugging guide](./SIGABRT-libc-debugging-guide.md) |
+| Native crash (`libc.so`, `__strlen_aarch64`) | Native module or system-level bug | See [SIGABRT debugging guide](../debugging/crash-analysis.md) |
 | JS crash with stack trace | Application code error | Fix directly |
 | ANR (no crash, just freeze) | Main thread blocked | Check [animations](./performance-rendering.md#animations), heavy computation |
-| Device-cluster crash (80%+ one OEM) | Hardware/OEM constraint | See [SIGABRT guide: OEM crashes](./SIGABRT-libc-debugging-guide.md#category-d-oem-specific-crashes-huawei-xiaomi-samsung) |
-| All versions crash simultaneously | Google Play System update | See [SIGABRT guide: Category E](./SIGABRT-libc-debugging-guide.md#category-e-google-play-system-updates-os-level-bug) |
-| Startup crash (<1 second) | Native init, memory pressure | See [native debugging](./native-layer-debugging-guide.md#21-memory-profiler--native-heap-analysis) |
+| Device-cluster crash (80%+ one OEM) | Hardware/OEM constraint | See [SIGABRT guide: OEM crashes](../debugging/crash-analysis.md#category-d-oem-specific-crashes-huawei-xiaomi-samsung) |
+| All versions crash simultaneously | Google Play System update | See [SIGABRT guide: Category E](../debugging/crash-analysis.md#category-e-google-play-system-updates-os-level-bug) |
+| Startup crash (<1 second) | Native init, memory pressure | See [native debugging](../debugging/native-layer-debugging.md#21-memory-profiler--native-heap-analysis) |
 
 ### Step 3: Prioritize by User Impact
 
@@ -76,14 +76,14 @@ For crashes below the JavaScript layer (`libc.so`, `libhermes.so`, `libhwui.so`)
 
 | Resource | Covers |
 |----------|--------|
-| [SIGABRT/libc.so Debugging Guide](./SIGABRT-libc-debugging-guide.md) | Root cause categories, decision framework |
-| [Native-Layer Debugging Guide](./native-layer-debugging-guide.md) | Android Studio profiler, Xcode instruments, Perfetto, ndk-stack |
+| [SIGABRT/libc.so Debugging Guide](../debugging/crash-analysis.md) | Root cause categories, decision framework |
+| [Native-Layer Debugging Guide](../debugging/native-layer-debugging.md) | Android Studio profiler, Xcode instruments, Perfetto, ndk-stack |
 | [Profiling: Memory Leaks](./profiling-debugging.md#memory-leaks) | JS-level memory leak patterns and detection |
 | [New Architecture: Common Pitfalls](./new-architecture-migration.md#common-pitfalls) | Migration-specific crashes (Blank Screen of Doom, shadow tree desync) |
 
 ### SIGABRT Decision Tree
 
-From the [SIGABRT guide](./SIGABRT-libc-debugging-guide.md#6-decision-framework):
+From the [SIGABRT guide](../debugging/crash-analysis.md#6-decision-framework):
 
 ```
 SIGABRT/SIGSEGV crash detected
@@ -105,12 +105,12 @@ SIGABRT/SIGSEGV crash detected
 4. Use the **Android version** distribution to prioritize OS-level fixes
 5. Cross-reference with Crashlytics clusters for root cause
 
-> **Pro tip from [SIGABRT guide](./SIGABRT-libc-debugging-guide.md)**: Google Play Console often has more complete crash logs than Crashlytics — it includes the "Thread terminating due to..." message that Crashlytics may truncate.
+> **Pro tip from [SIGABRT guide](../debugging/crash-analysis.md)**: Google Play Console often has more complete crash logs than Crashlytics — it includes the "Thread terminating due to..." message that Crashlytics may truncate.
 
 ## Checklist
 
 - [ ] Crash reporting SDK configured (Crashlytics, Sentry, Datadog, etc.)
-- [ ] NDK debug symbols uploaded — see [SIGABRT guide](./SIGABRT-libc-debugging-guide.md)
+- [ ] NDK debug symbols uploaded — see [SIGABRT guide](../debugging/crash-analysis.md)
 - [ ] Crash-free rate dashboard visible to the team
 - [ ] Regression alerts configured for new releases
 - [ ] Device segmentation reviewed monthly
@@ -118,6 +118,6 @@ SIGABRT/SIGSEGV crash detected
 
 ---
 
-> **See also**: [Profiling Tools Deep Dive](./profiling-tools-deep-dive.md) for tool selection framework
+> **See also**: [Profiling Tools Deep Dive](../debugging/profiling-tools-deep-dive.md) for tool selection framework
 
 **Next**: [Upgrading React Native →](./upgrading-react-native.md) — eliminate platform-level issues before optimizing code

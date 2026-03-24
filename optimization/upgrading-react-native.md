@@ -2,7 +2,7 @@
 
 > Newer RN versions ship critical performance fixes, not just features.
 
-[← Monitoring](./monitoring-anr-analysis.md) | [Index](./README.md) | [New Architecture →](./new-architecture-migration.md)
+[← Monitoring](./monitoring-anr-analysis.md) | [Index](../README.md) | [New Architecture →](./new-architecture-migration.md)
 
 **Keywords**: upgrade, version, Expo SDK, New Architecture, patch-package, upgrade-helper, breaking changes
 
@@ -89,7 +89,7 @@ Monitor [crash rates](./monitoring-anr-analysis.md#monitor-fixes) via Crashlytic
 
 A production crash analysis showed that several framework bugs were fixed in newer RN versions. Upgrading RN eliminated those crashes without any app-side code changes.
 
-From the [SIGABRT guide](./SIGABRT-libc-debugging-guide.md): keeping `@react-native-picker/picker` at outdated versions is a risk — always check for known SIGABRT fixes in patch releases.
+From the [SIGABRT guide](../debugging/crash-analysis.md): keeping `@react-native-picker/picker` at outdated versions is a risk — always check for known SIGABRT fixes in patch releases.
 
 ---
 
