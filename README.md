@@ -1,126 +1,211 @@
-# React Native & Expo: Architecture, Debugging & Optimization Guides
+# React Native & Expo: The Complete Guide
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/nicemogul/react-native-guide/pulls)
-[![React Native](https://img.shields.io/badge/React%20Native-0.70+-61DAFB?logo=react)](https://reactnative.dev)
-[![Expo](https://img.shields.io/badge/Expo-SDK%2049+-000020?logo=expo)](https://expo.dev)
+[![React Native](https://img.shields.io/badge/React%20Native-0.76+-61DAFB?logo=react)](https://reactnative.dev)
+[![Expo](https://img.shields.io/badge/Expo-SDK%2052+-000020?logo=expo)](https://expo.dev)
 
-> A practical, community-sourced collection of guides for understanding, debugging, and optimizing React Native / Expo apps — from architecture internals to native-layer crash analysis to EAS build pipelines.
+> From architecture internals to production optimization — everything you need to build, debug, and ship performant React Native apps.
 
-When your app crashes with a `SIGABRT` in `libc.so`, you need to understand the rendering pipeline, or you want to master EAS builds and OTA updates — these guides have you covered. They bridge the gap between React Native's JS world and everything underneath.
+When your app crashes with a `SIGABRT` in `libc.so`, you need to profile a memory leak on a $50 Android phone, or you want to master EAS builds and OTA updates — these guides have you covered. They bridge the gap between React Native's JS world and everything underneath.
+
+---
+
+## Pick Your Starting Point
+
+### By Experience Level
+
+**New to React Native (0-2 years)**
+1. [Performance & Rendering](performance-rendering.md) — core optimization principles, no setup required
+2. [Monitoring & ANR Analysis](monitoring-anr-analysis.md) — understand why your app feels slow
+3. [Upgrading React Native](upgrading-react-native.md) — version upgrade strategy
+4. [Architecture & Lifecycle](react-native-architecture-lifecycle.md) — how RN actually works (deep dive, optional at this stage)
+
+**Experienced with React Native (2-5 years)**
+1. [Monitoring & ANR Analysis](monitoring-anr-analysis.md) — production observability
+2. [New Architecture Migration](new-architecture-migration.md) — 17-27% faster cold start
+3. [Profiling Tools Deep Dive](profiling-tools-deep-dive.md) — memory & CPU profiling decision framework
+4. [Native-Layer Debugging](native-layer-debugging-guide.md) — crash analysis and profiling tools
+
+**Optimizing Production Apps (Team Lead / 5+ years)**
+1. [SIGABRT & libc Debugging](SIGABRT-libc-debugging-guide.md) — native crash root causes
+2. [Profiling Tools Deep Dive](profiling-tools-deep-dive.md) — when and how to profile memory & CPU
+3. [Optimization Series](#optimization-series-read-in-order) — comprehensive reference (7 chapters)
+4. [Expo EAS Complete Guide](expo-eas-complete-guide.md) — build pipeline mastery
+
+### By Problem
+
+| Problem | Go To | Key Metric |
+|---------|-------|-----------|
+| App freezing / ANRs | [Monitoring](monitoring-anr-analysis.md) | Crash-free rate |
+| Slow cold start (>2s) | [Profiling Deep Dive: Use Case 3](profiling-tools-deep-dive.md#use-case-3-cold-start-takes-3-seconds) | TTI |
+| Janky animations | [Performance: Animations](performance-rendering.md#animations) | FPS |
+| App slows after 5+ min use | [Profiling Deep Dive: Memory](profiling-tools-deep-dive.md#deep-dive-memory-profiling) | Heap growth |
+| Unnecessary re-renders | [Profiling: Re-renders](profiling-debugging.md#finding-slow-re-renders) | Render count |
+| Slow/janky lists | [Performance: Lists](performance-rendering.md#lists) | Blank area, view count |
+| Large bundle size | [Profiling: Bundle](profiling-debugging.md#bundle-size) | Bundle MB |
+| Memory leaks | [Profiling Deep Dive: Memory](profiling-tools-deep-dive.md#deep-dive-memory-profiling) | Heap snapshots |
+| Native crash (SIGABRT/SIGSEGV) | [SIGABRT Guide](SIGABRT-libc-debugging-guide.md) | Signal analysis |
+| Battery drain | [Profiling Deep Dive: Use Case 4](profiling-tools-deep-dive.md#use-case-4-battery-drain-reported-by-users) | CPU % idle |
+| Crashes on low-end devices | [Profiling Deep Dive: Use Case 5](profiling-tools-deep-dive.md#use-case-5-crashes-only-on-low-end-devices) | Peak memory |
+| Migrating to New Architecture | [New Architecture](new-architecture-migration.md) | Timeline |
+| Outdated RN version | [Upgrading](upgrading-react-native.md) | Version delta |
+| Choosing a new library | [Dependencies](dependency-management.md) | Bundle impact |
+| EAS build/deploy issues | [EAS Guide](expo-eas-complete-guide.md) | Build config |
+| app.config.ts confusion | [App Config Guide](expo-app-config-decision-guide.md) | WHAT/WHY/TRADE-OFFS |
+| Which state manager to pick | [Modern Patterns](modern-rn-architecture-patterns.md#state-management-decision-framework) | Decision matrix |
+| Navigation architecture | [Modern Patterns](modern-rn-architecture-patterns.md#navigation-expo-router-vs-react-navigation) | Expo Router vs RN7 |
+| Data fetching strategy | [Modern Patterns](modern-rn-architecture-patterns.md#data-fetching-tanstack-query--trpc) | TanStack Query + tRPC |
+| Starting a new project | [Modern Patterns](modern-rn-architecture-patterns.md#the-modern-react-native-stack-2026) | 2026 default stack |
+
+---
+
+## All Guides
+
+### Foundation
+
+| Guide | What It Covers |
+|-------|---------------|
+| [Architecture & Lifecycle](react-native-architecture-lifecycle.md) | Old vs New Architecture, threading model, rendering pipeline, Hermes internals, cold start sequences |
+| [Modern RN Patterns](modern-rn-architecture-patterns.md) | 2025-2026 stack: Expo Router, Zustand/Jotai/Legend State, TanStack Query, tRPC, MMKV, React Compiler |
+
+### Optimization Series (read in order)
+
+| # | Guide | What You'll Learn |
+|---|-------|------------------|
+| 1 | [Monitoring & ANR Analysis](monitoring-anr-analysis.md) | Instrument before optimizing. Crashlytics, Sentry, Play Console |
+| 2 | [Upgrading React Native](upgrading-react-native.md) | Version upgrades, New Architecture enablement, patches |
+| 3 | [New Architecture Migration](new-architecture-migration.md) | JSI, Fabric, TurboModules — Shopify & Discord metrics |
+| 4 | [Dependency Management](dependency-management.md) | Audit, replace, minimize libraries. Bundle impact |
+| 5 | [Performance & Rendering](performance-rendering.md) | Animations, memoization, re-renders, React Query, lists |
+| 6 | [Profiling & Debugging](profiling-debugging.md) | Tools, memory leaks, bundle analysis, Flashlight, Discord wins |
+| 7 | [Reading List](reading-list.md) | 37 curated articles, verified March 2026 |
+
+### Deep Dives
+
+| Guide | When You Need It |
+|-------|-----------------|
+| [Profiling Tools Deep Dive](profiling-tools-deep-dive.md) | Memory & CPU profiling decision framework, use case playbooks |
+| [SIGABRT & libc Debugging](SIGABRT-libc-debugging-guide.md) | Native crash root causes, decision framework, production fixes |
+| [Native-Layer Debugging](native-layer-debugging-guide.md) | Android Studio, Xcode, Perfetto, ASan, Tracy walkthroughs |
+
+### Expo & Build
+
+| Guide | When You Need It |
+|-------|-----------------|
+| [Expo EAS Complete Guide](expo-eas-complete-guide.md) | EAS Build, Submit, Update, Workflows, CI/CD, pricing |
+| [Expo App Config Guide](expo-app-config-decision-guide.md) | Every app.config.ts and eas.json property with WHAT/WHY/TRADE-OFFS |
+
+---
+
+## Reading Flow
+
+```
+Architecture → Modern Patterns → Optimization Series (1-7) → Deep Dives as needed
+                                                            ↘ Expo guides for build/deploy
+```
+
+---
+
+## Production Stats
+
+Real numbers from production apps referenced across these guides:
+
+| Company | Metric | Value | Guide |
+|---------|--------|-------|-------|
+| Shopify | Crash-free sessions | 99.9% | [Monitoring](monitoring-anr-analysis.md) |
+| Shopify | Screen load P75 | <500ms | [Performance](performance-rendering.md) |
+| Shopify | Native modules audited | 40+ | [New Arch](new-architecture-migration.md) |
+| Shopify | Bundle size reduction | 78% (50→11MB) | [Profiling](profiling-debugging.md) |
+| Discord | iOS engineers | 3 | [Lists](performance-rendering.md#lists) |
+| Discord | TTI improvement (iPhone 6) | -3,500ms | [Profiling](profiling-debugging.md#discord-wins) |
+| Discord | Message parse optimization | 90% faster | [Profiling](profiling-debugging.md#discord-wins) |
+| Discord | Memory reduction (lists) | -14% | [Lists](performance-rendering.md#lists) |
+| A Million Monkeys | Android cold start | -24% | [New Arch](new-architecture-migration.md) |
+| A Million Monkeys | Migration timeline (2 devs) | 12 days | [New Arch](new-architecture-migration.md) |
+| Moment→Day.js | Size reduction | 99% (232→2KB) | [Dependencies](dependency-management.md) |
+
+---
+
+## Concept Cross-Index
+
+Find where each concept is covered across all guides:
+
+| Concept | Primary Guide | Also Covered In |
+|---------|--------------|----------------|
+| **ANR / App Not Responding** | [Monitoring](monitoring-anr-analysis.md) | [Performance](performance-rendering.md), [Profiling Deep Dive](profiling-tools-deep-dive.md) |
+| **Animations / useNativeDriver** | [Performance](performance-rendering.md#animations) | [New Arch](new-architecture-migration.md), [Profiling Deep Dive](profiling-tools-deep-dive.md) |
+| **ASan / Sanitizers** | [Native Debugging](native-layer-debugging-guide.md) | [SIGABRT Guide](SIGABRT-libc-debugging-guide.md), [Profiling Deep Dive](profiling-tools-deep-dive.md) |
+| **Bundle size** | [Profiling](profiling-debugging.md#bundle-size) | [Dependencies](dependency-management.md), [Profiling Deep Dive](profiling-tools-deep-dive.md) |
+| **Cold start / TTI** | [Profiling](profiling-debugging.md#startup-optimization) | [New Arch](new-architecture-migration.md), [Profiling Deep Dive](profiling-tools-deep-dive.md) |
+| **Crashlytics / Sentry** | [Monitoring](monitoring-anr-analysis.md) | [EAS Guide](expo-eas-complete-guide.md), [Profiling Deep Dive](profiling-tools-deep-dive.md) |
+| **EAS Build / Submit / Update** | [EAS Guide](expo-eas-complete-guide.md) | [App Config](expo-app-config-decision-guide.md) |
+| **Fabric / JSI / TurboModules** | [New Architecture](new-architecture-migration.md) | [Architecture](react-native-architecture-lifecycle.md), [Upgrading](upgrading-react-native.md) |
+| **Flashlight (BAM)** | [Profiling](profiling-debugging.md#flashlight) | [Performance](performance-rendering.md), [Profiling Deep Dive](profiling-tools-deep-dive.md) |
+| **FlashList v2** | [Performance](performance-rendering.md#lists) | [Profiling Deep Dive](profiling-tools-deep-dive.md) |
+| **Hermes engine** | [Architecture](react-native-architecture-lifecycle.md) | [Profiling](profiling-debugging.md), [Profiling Deep Dive](profiling-tools-deep-dive.md) |
+| **Memory leaks** | [Profiling Deep Dive](profiling-tools-deep-dive.md#deep-dive-memory-profiling) | [Profiling](profiling-debugging.md#memory-leaks), [Native Debugging](native-layer-debugging-guide.md) |
+| **Memory profiling (native)** | [Profiling Deep Dive](profiling-tools-deep-dive.md#android-native-memory-profiling) | [Native Debugging](native-layer-debugging-guide.md) |
+| **CPU profiling** | [Profiling Deep Dive](profiling-tools-deep-dive.md#deep-dive-cpu-profiling) | [Profiling](profiling-debugging.md), [Native Debugging](native-layer-debugging-guide.md) |
+| **Memoization** | [Performance](performance-rendering.md#memoization) | [Profiling](profiling-debugging.md#react-compiler) |
+| **New Architecture** | [New Architecture](new-architecture-migration.md) | [Architecture](react-native-architecture-lifecycle.md), [Upgrading](upgrading-react-native.md) |
+| **Perfetto** | [Profiling Deep Dive](profiling-tools-deep-dive.md) | [Native Debugging](native-layer-debugging-guide.md) |
+| **React Compiler** | [Profiling](profiling-debugging.md#react-compiler) | [Performance](performance-rendering.md#memoization) |
+| **React Query** | [Performance](performance-rendering.md#data-fetching) | [Modern Patterns](modern-rn-architecture-patterns.md) |
+| **Navigation / Expo Router** | [Modern Patterns](modern-rn-architecture-patterns.md#navigation-expo-router-vs-react-navigation) | [Performance](performance-rendering.md) |
+| **State management (Zustand/Jotai)** | [Modern Patterns](modern-rn-architecture-patterns.md#state-management-decision-framework) | [Performance](performance-rendering.md#data-fetching) |
+| **Data fetching (TanStack Query)** | [Modern Patterns](modern-rn-architecture-patterns.md#data-fetching-tanstack-query--trpc) | [Performance](performance-rendering.md#data-fetching) |
+| **MMKV / Storage** | [Modern Patterns](modern-rn-architecture-patterns.md#pattern-4-mmkv-over-asyncstorage) | [SIGABRT Guide](SIGABRT-libc-debugging-guide.md) |
+| **SIGABRT / SIGSEGV** | [SIGABRT Guide](SIGABRT-libc-debugging-guide.md) | [Monitoring](monitoring-anr-analysis.md), [Profiling Deep Dive](profiling-tools-deep-dive.md) |
 
 ---
 
 ## Who Is This For?
 
-- **React Native / Expo developers** who want to understand how RN actually works under the hood
+- **React Native / Expo developers** who want to understand how RN works under the hood
 - **Mobile engineers** hitting native crashes they can't explain from the JS layer
 - **Team leads** responsible for production stability and release rollouts
-- **New team members** who need a comprehensive onboarding resource for RN internals and Expo tooling
+- **New team members** who need a comprehensive onboarding resource
 - **Anyone** who has stared at a tombstone trace from `libc.so` and thought "now what?"
 
-No deep Android/C++ experience required — the guides are written for React Native developers and explain native concepts as they come up.
+No deep Android/C++ experience required — the guides explain native concepts as they come up.
 
 ---
 
-## What's Inside
+## What's Not Covered Yet (Roadmap)
 
-| Guide | What It Covers | When You Need It |
-|-------|---------------|-----------------|
-| [**React Native Architecture & Lifecycle**](react-native-architecture-lifecycle.md) | Old vs New Architecture, threading model, rendering pipeline, Hermes internals, Android/iOS app lifecycle, Bridge vs Bridgeless, event system, memory model | You want to understand how React Native actually works under the hood — essential foundation for all other guides |
-| [**SIGABRT & libc Debugging Guide**](SIGABRT-libc-debugging-guide.md) | Signal 6 (SIGABRT) and Signal 11 (SIGSEGV) crashes from `libc.so` — root causes, debugging strategies, production fixes, and a decision framework | Your app is crashing in production with native signals and you need to find the root cause and ship a fix |
-| [**Native-Layer Debugging & Optimization Guide**](native-layer-debugging-guide.md) | Memory profiling, CPU profiling, Perfetto tracing, heap analysis, sanitizers, Hermes profiling, Tracy integration, Expo prebuild inspection, crash symbolication, ProGuard/R8, ABI splits, baseline profiles | You need to profile, optimize, or debug your app at the native layer using Android Studio, Xcode, or cross-platform tools |
-| [**Expo EAS Complete Guide**](expo-eas-complete-guide.md) | EAS Build, Submit, Update (OTA), Prebuild & Config Plugins, Metadata, debug symbols, crash reporting integration, EAS Workflows, pricing | You're building with Expo and need to master the build pipeline, OTA updates, credential management, or CI/CD |
-| [**Expo App Config Decision Guide**](expo-app-config-decision-guide.md) | Every app.config.ts and eas.json property explained with WHAT/WHY/TRADE-OFFS/MISTAKES — not boilerplate, but decision-oriented guidance for iOS, Android, OTA, plugins, deep linking, and more | You want to understand what each config option actually does and make informed choices for your specific app |
-| [**Mega Guide**](mega-guide/) | 7-chapter series: monitoring, upgrading RN, New Architecture migration, dependencies, performance & rendering, profiling & debugging, curated reading list — with Shopify/Discord/Callstack production metrics | You want a structured learning path through all aspects of RN optimization |
-| [**Optimization Guide**](optimization-guide/) | Concise optimization reference: ANR analysis, dependency management, performance fundamentals, list performance, New Architecture deep dive, profiling & debugging, curated reading list | You want quick-reference optimization advice organized by topic |
+These topics are planned for future additions. Contributions welcome!
 
-### At a Glance
-
-**React Native Architecture & Lifecycle (1,700+ lines):**
-- Old Architecture (Bridge) vs New Architecture (JSI/Fabric/TurboModules/Codegen) with ASCII diagrams
-- Complete threading model — all 6 threads explained with blocking consequences
-- Rendering pipeline deep dive — Old Renderer vs Fabric (Render/Commit/Mount phases)
-- Hermes engine internals — bytecode, GenGC, no-JIT rationale
-- Full Android cold start sequence (Zygote → SoLoader → Bridge → JS → Render)
-- Full iOS cold start sequence (dyld → AppDelegate → RCTBridge → Bundle → Render)
-- Bridge vs Bridgeless comparison, React 18 concurrent features
-- Event system, gesture handling, memory model across platforms
-
-**SIGABRT & libc Debugging Guide (1,400+ lines):**
-- 9+ root cause categories (buggy native libs, Hermes, OEM-specific, OOM, R8 over-stripping, and more)
-- 10+ debugging strategies (from logcat filtering to AddressSanitizer)
-- 8+ production-ready fixes with code examples
-- Crash reporting tool comparison (Crashlytics vs Sentry vs Datadog vs Bugsnag)
-- Decision framework flowchart for systematic triage
-- "Audit your own app" checklist
-
-**Native-Layer Debugging & Optimization Guide (1,400+ lines):**
-- Android Studio Memory Profiler, CPU Profiler, and Layout Inspector walkthroughs
-- Perfetto system tracing for cross-process analysis
-- Heap dumps and native memory tracking with heapprofd
-- ASan / TSan / UBSan sanitizer setup for both platforms
-- Hermes CPU profiling and Chrome DevTools integration
-- Tracy profiler for React Native C++ internals
-- Xcode Instruments, Memory Graph Debugger, Metal System Trace
-- ProGuard/R8 configuration, ABI splits, baseline profiles, Flipper replacements
-
-**Expo EAS Complete Guide (1,900+ lines):**
-- EAS Build architecture, server infrastructure, resource classes, build images
-- Complete eas.json reference with all properties
-- Credential management (Android keystore, iOS provisioning)
-- EAS Submit for Google Play and App Store
-- EAS Update (OTA) — channels, branches, runtime versions, rollbacks, rollouts
-- Prebuild & Config Plugins — CNG, custom plugins, managed vs bare
-- Debug symbol upload for Sentry, Datadog, Crashlytics
-- EAS Workflows, CI/CD integration, pricing
-
-**Expo App Config Decision Guide (1,600+ lines):**
-- Every app.config.ts property with WHAT/WHY/TRADE-OFFS/MISTAKES framework
-- iOS deep dive: bundleIdentifier, supportsTablet, Universal Links, infoPlist, entitlements
-- Android deep dive: package, allowBackup, adaptive icons, permissions, App Links, keyboard modes
-- expo-build-properties: minSdkVersion coverage, R8/ProGuard keep rules for 10+ libraries
-- OTA strategy: checkAutomatically options, fallbackToCacheTimeout decisions, runtime version policies
-- eas.json: build profile inheritance, environment variable strategy, staged rollouts
-- Deep linking architecture: custom scheme + Universal Links + App Links complete setup
-
----
-
-## Quick Start
-
-**"I want to understand how React Native works under the hood."**
-Start with the [Architecture & Lifecycle Guide](react-native-architecture-lifecycle.md). It explains the threading model, rendering pipeline, Hermes engine, and app startup sequence — essential context for everything else.
-
-**"My app is crashing with a native signal (SIGABRT, SIGSEGV) and I don't know why."**
-Start with the [SIGABRT & libc Debugging Guide](SIGABRT-libc-debugging-guide.md). It walks you through identifying the crash source, matching it to known root causes, and applying targeted fixes.
-
-**"My app is slow, uses too much memory, or I need to profile native performance."**
-Start with the [Native-Layer Debugging & Optimization Guide](native-layer-debugging-guide.md). It covers the full toolkit for profiling and optimizing at the native layer.
-
-**"I need to set up EAS builds, OTA updates, or CI/CD for my Expo app."**
-Start with the [Expo EAS Complete Guide](expo-eas-complete-guide.md). It covers the entire EAS pipeline from build configuration to store submission to over-the-air updates.
-
-**"I want to understand what each app.config.ts / eas.json property actually does before I change it."**
-Start with the [Expo App Config Decision Guide](expo-app-config-decision-guide.md). Every property explained with trade-offs and common mistakes — not boilerplate, but informed decision-making.
-
-**"I want to proactively audit my app before the next release."**
-Read all four guides. The architecture guide gives you the mental model, the SIGABRT guide has an audit checklist, the optimization guide covers profiling, and the EAS guide ensures your build pipeline is solid.
+| Topic | Status | Priority |
+|-------|--------|----------|
+| ~~Navigation patterns~~ | **Done** — [Modern Patterns Guide](modern-rn-architecture-patterns.md) | ~~High~~ |
+| ~~State management architecture~~ | **Done** — [Modern Patterns Guide](modern-rn-architecture-patterns.md) | ~~High~~ |
+| Testing strategy (Jest, RNTL, Maestro, Detox) | Planned | High |
+| Security & data protection | Planned | High |
+| Push notifications (FCM/APNS) | Planned | Medium |
+| Local storage & offline patterns | Planned | Medium |
+| Accessibility (a11y) | Planned | Medium |
+| Error boundaries & crash prevention | Planned | Medium |
+| Advanced animations & gestures | Planned | Medium |
+| Internationalization (i18n) | Planned | Low |
+| Custom native modules & JSI | Planned | Low |
+| Multi-platform (web support) | Planned | Low |
 
 ---
 
 ## Contributing
 
-Contributions are welcome! These guides are living documents — React Native's native layer evolves quickly and new crash patterns emerge with every major release.
+Contributions are welcome! These guides are living documents — React Native evolves quickly and new patterns emerge with every major release.
 
-Ways to contribute:
-
+**Ways to contribute**:
 - **Add a new root cause or fix** you discovered in production
 - **Improve an existing section** with better explanations or updated tooling
-- **Share a debugging war story** that could help others (even as a brief case study)
+- **Share a debugging war story** (even as a brief case study)
+- **Fill a gap** from the roadmap above
 - **Fix typos, broken links, or outdated version references**
-- **Add coverage for iOS-specific native debugging** (these guides currently focus on Android)
+- **Add iOS-specific coverage** (current guides lean Android)
 
-Please open a PR with a clear description of what you're adding or changing. If you're adding a new root cause, include the crash signature, the environment where you saw it, and the fix that worked.
+Please open a PR with a clear description of what you're adding or changing.
 
 ---
 
@@ -128,16 +213,15 @@ Please open a PR with a clear description of what you're adding or changing. If 
 
 These guides were compiled from 20+ sources across the React Native community, including:
 
-- **GitHub Issues** — crash reports and fixes from `react-native`, `reanimated`, `react-native-screens`, `hermes-engine`, `expo`, and other core repositories
-- **Omkar Salapurkar** — [detailed writeup on SIGABRT crashes in React Native Android](https://medium.com/@nicemogul) and native-layer debugging approaches
-- **Callstack Blog** — articles on React Native performance, Hermes internals, and native module debugging
-- **Margelo** — creators of [react-native-release-profiler](https://github.com/margelo/react-native-release-profiler) and Tracy integration tooling for React Native
-- **Software Mansion** — Reanimated and React Native Screens debugging documentation
-- **Stack Overflow** — community answers on `libc.so` crashes, tombstone analysis, and Android NDK debugging
-- **Android Developer Documentation** — Perfetto, Android Studio profiling tools, baseline profiles, and ProGuard/R8 guides
-- **Production incidents** — real-world crash patterns and fixes from shipping React Native apps at scale
-
-Thank you to everyone who files detailed bug reports, writes debugging blog posts, and builds the tooling that makes native-layer debugging accessible to the React Native community.
+- **Shopify Engineering** — FlashList, New Architecture migration at scale, production metrics
+- **Discord Engineering** — High-scale performance optimization, custom list implementations
+- **Callstack** — Bundle optimization, performance methodology, free ebooks
+- **BAM/Theodo** — Flashlight profiling tool, re-render methodology
+- **Sentry** — Performance monitoring, debugging tooling
+- **Oscar Franco** — JSI, native modules, C++ internals
+- **GitHub Issues** — crash reports from react-native, reanimated, hermes-engine, expo
+- **Android & Apple Developer Docs** — Perfetto, Instruments, profiling APIs
+- **Production incidents** — real-world crash patterns from shipping RN apps at scale
 
 ---
 

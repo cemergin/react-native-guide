@@ -1,3 +1,5 @@
+[← Back to Index](./README.md)
+
 # React Native Architecture & Lifecycle Deep Dive
 
 A comprehensive guide to React Native internals: architecture, threading, rendering,
@@ -1759,3 +1761,14 @@ either platform, Hermes maintains consistent behavior across iOS and Android.
 ---
 
 *Last updated: March 2026. Architecture details reflect React Native 0.76+ with New Architecture as default.*
+
+---
+
+## Related Guides
+
+| Guide | Relationship |
+|-------|-------------|
+| [New Architecture Deep Dive](./new-architecture-migration.md) | Migration playbook with Shopify/Discord production metrics — practical application of the architecture concepts covered here |
+| [SIGABRT & libc Debugging](./SIGABRT-libc-debugging-guide.md) | When architecture-level issues cause native crashes — signal analysis and root cause framework |
+| [Native-Layer Debugging](./native-layer-debugging-guide.md) | Profiling tools for the native layer described in this guide — Android Studio, Xcode, Perfetto |
+| [Profiling Tools Deep Dive](./profiling-tools-deep-dive.md) | Decision framework for choosing the right profiling tool at each architecture layer |

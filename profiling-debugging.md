@@ -2,7 +2,7 @@
 
 > Measure, debug, and prevent regressions. Never optimize without data.
 
-[← Performance](./05-performance.md) | [Index](./README.md) | [Reading List →](./07-reading-list.md)
+[← Performance](./performance-rendering.md) | [Index](./README.md) | [Reading List →](./reading-list.md)
 
 **Keywords**: profiling, React DevTools, Hermes profiler, Flashlight, memory leak, bundle size, Metro, tree-shaking, Re.Pack, RAM bundle, startup, TTI, flamegraph, Perfetto, ndk-stack, ASan
 
@@ -14,10 +14,10 @@
 
 | Tool | What It Measures | When to Use |
 |------|-----------------|-------------|
-| **React DevTools Profiler** | Component render times, re-render causes | Finding unnecessary [re-renders](./05-performance.md#memoization) |
+| **React DevTools Profiler** | Component render times, re-render causes | Finding unnecessary [re-renders](./performance-rendering.md#memoization) |
 | **Hermes Profiler** | JS function execution times | Finding slow JS functions |
 | **Flashlight (BAM)** | FPS, CPU, RAM on real devices | Benchmarking before/after changes |
-| **Sentry Performance** | Production TTI, transaction traces | [Monitoring](./01-monitoring.md) real users |
+| **Sentry Performance** | Production TTI, transaction traces | [Monitoring](./monitoring-anr-analysis.md) real users |
 | **React Compiler** | Auto-memoization | Eliminating re-render bugs at compile time |
 
 ### Native-Level Tools
@@ -26,10 +26,10 @@ For crashes below the JS layer, see the dedicated guides:
 
 | Guide | Covers |
 |-------|--------|
-| [Native-Layer Debugging Guide](../native-layer-debugging-guide.md) | Android Studio profiler, Xcode Instruments, Perfetto, heapprofd, ndk-stack, Tracy |
-| [SIGABRT/libc.so Guide](../SIGABRT-libc-debugging-guide.md) | Root cause categories, decision framework, ASan, OEM-specific crashes |
+| [Native-Layer Debugging Guide](./native-layer-debugging-guide.md) | Android Studio profiler, Xcode Instruments, Perfetto, heapprofd, ndk-stack, Tracy |
+| [SIGABRT/libc.so Guide](./SIGABRT-libc-debugging-guide.md) | Root cause categories, decision framework, ASan, OEM-specific crashes |
 
-**Key native tools**: Android Studio Memory/CPU Profiler, Xcode Instruments (Time Profiler, Leaks), Perfetto, ndk-stack. Full details in [native guide](../native-layer-debugging-guide.md#6-tool-summary-matrix).
+**Key native tools**: Android Studio Memory/CPU Profiler, Xcode Instruments (Time Profiler, Leaks), Perfetto, ndk-stack. Full details in [native guide](./native-layer-debugging-guide.md#6-tool-summary-matrix).
 
 ---
 
@@ -56,7 +56,7 @@ Press `j` in Metro → React DevTools → Profiler tab → Enable "Highlight upd
 
 When React DevTools shows re-renders but cause isn't clear → use Hermes Profiler or Chrome DevTools Performance tab. Common culprits: regex compilation, JSON parsing, lodash on large arrays.
 
-> **See also**: [Performance: Memoization](./05-performance.md#memoization) for fixes | [React Compiler](#react-compiler) to auto-fix
+> **See also**: [Performance: Memoization](./performance-rendering.md#memoization) for fixes | [React Compiler](#react-compiler) to auto-fix
 
 ---
 
@@ -74,7 +74,7 @@ Real examples from Discord's iOS optimization — specific numbers, specific fix
 
 **Total TTI improvement**: -3,500ms on iPhone 6, with only 3 iOS engineers.
 
-> **See also**: [Performance: Animations](./05-performance.md#animations) for `useNativeDriver` | [SIGABRT guide](../SIGABRT-libc-debugging-guide.md) for native image loading issues
+> **See also**: [Performance: Animations](./performance-rendering.md#animations) for `useNativeDriver` | [SIGABRT guide](./SIGABRT-libc-debugging-guide.md) for native image loading issues
 
 ---
 
@@ -104,13 +104,13 @@ Discord deferred ~100 of 2,600 modules:
 
 ### Lazy Navigation
 
-If no navigator in your app uses `lazy: true`, adding `screenOptions={{ lazy: true }}` to stack navigators reduces initial memory footprint. See the [SIGABRT guide](../SIGABRT-libc-debugging-guide.md) for details on this pattern.
+If no navigator in your app uses `lazy: true`, adding `screenOptions={{ lazy: true }}` to stack navigators reduces initial memory footprint. See the [SIGABRT guide](./SIGABRT-libc-debugging-guide.md) for details on this pattern.
 
 ### Background Initialization
 
-If your `MainApplication.kt` (Android) loads Firebase, analytics, or other SDKs synchronously at startup, consider moving those initializations to background threads. See the [SIGABRT guide](../SIGABRT-libc-debugging-guide.md) for the pattern.
+If your `MainApplication.kt` (Android) loads Firebase, analytics, or other SDKs synchronously at startup, consider moving those initializations to background threads. See the [SIGABRT guide](./SIGABRT-libc-debugging-guide.md) for the pattern.
 
-> **See also**: [Native Debugging: Perfetto startup trace](../native-layer-debugging-guide.md#23-perfetto--deep-system-tracing) for native-layer startup analysis | [Native Debugging: Baseline Profiles](../native-layer-debugging-guide.md#53-android-baseline-profiles--faster-cold-start) for 25-30% cold start improvement
+> **See also**: [Native Debugging: Perfetto startup trace](./native-layer-debugging-guide.md#23-perfetto--deep-system-tracing) for native-layer startup analysis | [Native Debugging: Baseline Profiles](./native-layer-debugging-guide.md#53-android-baseline-profiles--faster-cold-start) for 25-30% cold start improvement
 
 ---
 
@@ -141,7 +141,7 @@ npx react-native-bundle-visualizer
 - **78% bundle size reduction** (50MB → 11MB) in a case study
 - See their [free ebook](https://www.callstack.com/ebooks/the-ultimate-guide-to-react-native-optimization)
 
-> **See also**: [Dependencies: Lighter Alternatives](./04-dependencies.md#lighter-alternatives) for library swaps that reduce bundle | [Dependencies: Depcheck](./04-dependencies.md#auditing) for removing unused packages
+> **See also**: [Dependencies: Lighter Alternatives](./dependency-management.md#lighter-alternatives) for library swaps that reduce bundle | [Dependencies: Depcheck](./dependency-management.md#auditing) for removing unused packages
 
 ---
 
@@ -158,7 +158,7 @@ npx @bamlab/flashlight test --testCommand "maestro test flow.yaml" # CI
 **Advantages over Flipper**: Works in production builds, no SDK needed, more metrics
 **CI integration**: Run nightly with Maestro flows to catch performance regressions
 
-> **See also**: [Performance: List Checklist](./05-performance.md#lists) for what to measure | [Reading List #28](./07-reading-list.md) for nightly E2E + perf test setup
+> **See also**: [Performance: List Checklist](./performance-rendering.md#lists) for what to measure | [Reading List #28](./reading-list.md) for nightly E2E + perf test setup
 
 ---
 
@@ -203,13 +203,13 @@ useEffect(() => {
 | Android native | Android Studio Memory Profiler, heapprofd |
 | Cross-platform | React DevTools (mount/unmount tracking) |
 
-For deep native memory debugging, see [Native Debugging Guide: Memory Profiler](../native-layer-debugging-guide.md#21-memory-profiler--native-heap-analysis) and [Xcode Leaks](../native-layer-debugging-guide.md#32-instruments--leaks--allocations).
+For deep native memory debugging, see [Native Debugging Guide: Memory Profiler](./native-layer-debugging-guide.md#21-memory-profiler--native-heap-analysis) and [Xcode Leaks](./native-layer-debugging-guide.md#32-instruments--leaks--allocations).
 
 ### OOM Patterns to Watch For
 
 Graphics memory can spike dramatically during scrolling — e.g., jumping from 70MB to 472MB (7x increase) due to autoplay videos and animated GIFs. Product-level fixes (disable autoplay, pause off-screen media) are often more effective than code-level optimization.
 
-> **See also**: [Monitoring](./01-monitoring.md) for production crash patterns | [SIGABRT guide](../SIGABRT-libc-debugging-guide.md) for memory profile analysis
+> **See also**: [Monitoring](./monitoring-anr-analysis.md) for production crash patterns | [SIGABRT guide](./SIGABRT-libc-debugging-guide.md) for memory profile analysis
 
 ---
 
@@ -221,7 +221,7 @@ Auto-memoizes components — eliminates need for manual `useMemo`/`useCallback`:
 { "expo": { "experiments": { "reactCompiler": true } } }
 ```
 
-> **See also**: [Performance: Memoization](./05-performance.md#memoization) for manual patterns when React Compiler isn't available
+> **See also**: [Performance: Memoization](./performance-rendering.md#memoization) for manual patterns when React Compiler isn't available
 
 ---
 
@@ -230,14 +230,14 @@ Auto-memoizes components — eliminates need for manual `useMemo`/`useCallback`:
 ### Before Optimizing
 - [ ] Profile first — never optimize without data
 - [ ] Measure baseline: cold start TTI, FPS during scroll, memory during navigation
-- [ ] Set up Flashlight or Sentry Performance for ongoing [monitoring](./01-monitoring.md)
+- [ ] Set up Flashlight or Sentry Performance for ongoing [monitoring](./monitoring-anr-analysis.md)
 
 ### Quick Wins
 - [ ] Move regex/constant creation outside components
 - [ ] Add `AbortController` to all fetch calls in `useEffect`
 - [ ] Clean up event listeners, intervals, WebSocket connections
 - [ ] Enable React Compiler if on Expo SDK 54+
-- [ ] Audit [lodash usage](./04-dependencies.md#lighter-alternatives) — replace with native JS
+- [ ] Audit [lodash usage](./dependency-management.md#lighter-alternatives) — replace with native JS
 
 ### Deep Optimization
 - [ ] Profile with React DevTools ("Record why each component rendered")
@@ -245,12 +245,14 @@ Auto-memoizes components — eliminates need for manual `useMemo`/`useCallback`:
 - [ ] Consider RAM bundles for apps with 1000+ modules
 - [ ] Run Flashlight benchmarks in CI
 - [ ] Test memory stability: navigate back/forth 20+ times
-- [ ] Use [Perfetto](../native-layer-debugging-guide.md#23-perfetto--deep-system-tracing) for native startup analysis
-- [ ] Use [ASan](../native-layer-debugging-guide.md#34-sanitizers-asan-tsan-ubsan) for memory corruption bugs
+- [ ] Use [Perfetto](./native-layer-debugging-guide.md#23-perfetto--deep-system-tracing) for native startup analysis
+- [ ] Use [ASan](./native-layer-debugging-guide.md#34-sanitizers-asan-tsan-ubsan) for memory corruption bugs
 
 ---
 
-**Next**: [Reading List →](./07-reading-list.md) — 28 curated articles
+> **See also**: [Profiling Tools Deep Dive](./profiling-tools-deep-dive.md) for comprehensive memory & CPU profiling decision framework
+
+**Next**: [Reading List →](./reading-list.md) — 28 curated articles
 
 Sources:
 - [Sentry: RN Performance Tactics](https://blog.sentry.io/react-native-performance-strategies-tools/)

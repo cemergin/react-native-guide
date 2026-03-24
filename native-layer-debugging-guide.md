@@ -1,3 +1,5 @@
+[← Back to Index](./README.md)
+
 # Native-Layer Debugging & Optimization Guide for React Native / Expo
 
 > **Purpose**: Go deeper than the JavaScript/Expo framework level. This guide covers tools and techniques in Android Studio, Xcode, and cross-platform native profilers for diagnosing crashes, memory leaks, CPU bottlenecks, and startup performance at the native layer.
@@ -1397,3 +1399,14 @@ These are the most frequent problems developers encounter when setting up native
 - [Flashlight (Performance Profiler)](https://github.com/nickt/android-performance-profiler) — Automated Android performance testing
 - [Detox](https://github.com/wix/Detox) — Gray-box E2E testing for React Native
 - [source-map-explorer](https://github.com/danvk/source-map-explorer) — Bundle size visualization
+
+---
+
+## Related Guides
+
+| Guide | Relationship |
+|-------|-------------|
+| [SIGABRT & libc Debugging](./SIGABRT-libc-debugging-guide.md) | Complementary guide — use this for root cause analysis of crashes found while profiling with the tools described here |
+| [Profiling Tools Deep Dive](./profiling-tools-deep-dive.md) | Decision framework for when to use each tool — helps you choose between the tools documented here |
+| [Architecture & Lifecycle](./react-native-architecture-lifecycle.md) | Foundation for understanding the threading model and native layers you're profiling |
+| [Profiling & Debugging](./profiling-debugging.md) | JS-level profiling (React DevTools, Flashlight) that complements the native-level tools here |

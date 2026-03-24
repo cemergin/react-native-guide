@@ -2,7 +2,7 @@
 
 > Curated from engineering blogs by real practitioners. Every link verified March 2026.
 
-[← Profiling](./06-profiling.md) | [Index](./README.md)
+[← Profiling](./profiling-debugging.md) | [Index](./README.md)
 
 **Keywords**: articles, blogs, Shopify, Discord, Callstack, BAM, Sentry, Expensify, Oscar Franco, Flashlight, FlashList
 
@@ -60,6 +60,20 @@
 | 26 | [Native iOS Performance with RN](https://discord.com/blog/how-discord-achieves-native-ios-performance-with-react-native) | Discord | 99.9% crash free, 3 iOS engineers |
 | 27 | [Maestro vs Detox at Jupiter](https://life.jupiter.money/choosing-between-maestro-and-detox-on-jupiter-qa-automation-7b94e6f8759d) | Jupiter Money | Real team comparison with setup/maintenance costs |
 | 28 | [Nightly E2E + Perf Tests](https://blog.theodo.com/2023/11/nightly-performance-flashlight/) | Theodo/BAM | CI performance regression testing |
+
+## Expo Optimization & Modern Patterns
+
+| # | Article | Author | Key Takeaway |
+|---|---------|--------|-------------|
+| 29 | [Best Practices for Reducing Lag in Expo Apps](https://expo.dev/blog/best-practices-for-reducing-lag-in-expo-apps) | Expo | React Compiler as #1 optimization, threading best practices, profiling workflow |
+| 30 | [Offline-First Apps with Expo and Legend State](https://expo.dev/blog/offline-first-apps-with-expo-and-legend-state) | Expo | Legend State + MMKV persistence, automatic conflict resolution, sync patterns |
+| 31 | [From Web to Native with React](https://expo.dev/blog/from-web-to-native-with-react) | Expo | Universal app patterns, Expo Router web support, code sharing strategies |
+| 32 | [Why Your Bundle Size Matters and How Expo Atlas Helps](https://www.callstack.com/blog/knowing-your-apps-bundle-contents-native-performance) | Callstack | Expo Atlas deep dive, dependency analysis, cherry-picking imports |
+| 33 | [How I Reduced My RN Bundle Size by 70%](https://medium.com/@bergueeg/how-i-reduced-my-react-native-app-bundle-size-by-70-7505e67d0373) | Bergue | Practical walkthrough: import optimization, asset compression, ABI splits |
+| 34 | [Maximizing Performance in React Native + Expo](https://koptional.com/resource/optimizing-react-native-expo/) | K-Optional | Comprehensive Expo optimization guide with benchmarks |
+| 35 | [React Navigation 7 vs Expo Router](https://viewlytics.ai/blog/react-navigation-7-vs-expo-router) | Viewlytics | Feature comparison, migration guide, performance differences |
+| 36 | [React Native State Management Guide 2026](https://www.oflight.co.jp/en/columns/react-native-state-management-2026) | Oflight | Zustand vs Redux Toolkit vs Jotai decision matrix with benchmarks |
+| 37 | [tRPC: New TanStack React Query Integration](https://trpc.io/blog/introducing-tanstack-react-query-client) | tRPC | End-to-end type safety for React Native data fetching |
 
 ## Blogs to Follow
 

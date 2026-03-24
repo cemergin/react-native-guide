@@ -1,3 +1,5 @@
+[← Back to Index](./README.md)
+
 # SIGABRT / libc.so Crash Debugging Guide for React Native Android
 
 > **A comprehensive guide** for diagnosing and fixing `SIGABRT` (Signal 6) and `SIGSEGV` (Signal 11) crashes originating from `libc.so` in React Native and Expo Android apps. Consolidates findings from GitHub issues, Stack Overflow threads, community articles, and production crash investigations.
@@ -1476,3 +1478,14 @@ After completing the audit, fill in this template to track your findings:
 ---
 
 *This guide is maintained as a living document. Contributions and corrections are welcome.*
+
+---
+
+## Related Guides
+
+| Guide | Relationship |
+|-------|-------------|
+| [Native-Layer Debugging](./native-layer-debugging-guide.md) | Complementary guide — use this for profiling tools (Memory Profiler, CPU Profiler, Perfetto, ASan) to investigate crashes identified here |
+| [Profiling Tools Deep Dive](./profiling-tools-deep-dive.md) | When crash analysis points to memory or CPU issues — comprehensive tool selection framework |
+| [Architecture & Lifecycle](./react-native-architecture-lifecycle.md) | Understanding the threading model and memory model that underlie the crash patterns described here |
+| [Monitoring & ANR Analysis](./monitoring-anr-analysis.md) | Production monitoring setup that surfaces the crashes this guide helps you debug |

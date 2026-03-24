@@ -1,18 +1,20 @@
-# Dependency Management
+# Chapter 4: Dependency Management
 
 > Every `yarn add` is a long-term maintenance commitment. Be intentional.
 
-[Back to Index](./README.md) | Previous: [Keeping Updated](./keeping-rn-updated.md) | Next: [Performance](./performance-fundamentals.md)
+[← New Architecture](./new-architecture-migration.md) | [Index](./README.md) | [Performance →](./performance-rendering.md)
+
+**Keywords**: depcheck, bundle size, yarn why, library, alternative, Day.js, Moment, Lottie, Rive, tree-shaking, custom code
 
 ---
 
 ## Why It Matters
 
 Each library you add:
-- Increases **bundle size** (affects startup — see [Performance](./performance-fundamentals.md))
+- Increases **bundle size** (affects startup — see [Performance](./performance-rendering.md))
 - Adds **transitive dependencies** you don't control
-- Creates **potential failure points** (see [ANR Analysis](./anr-analysis.md))
-- Introduces **upgrade friction** (see [Keeping Updated](./keeping-rn-updated.md))
+- Creates **potential failure points** (see [Monitoring](./monitoring-anr-analysis.md))
+- Introduces **upgrade friction** (see [Upgrading](./upgrading-react-native.md))
 
 ### The Hidden Cost
 
@@ -56,9 +58,9 @@ yarn why <package-name>
 yarn remove <package-name>
 
 # Step 4: Verify
-yarn ci          # type-check + lint + tests
-yarn android     # build Android
-yarn ios         # build iOS
+yarn test && yarn lint && yarn tsc   # type-check + lint + tests
+yarn android                          # build Android
+yarn ios                              # build iOS
 ```
 
 ## Lighter Alternatives {#lighter-alternatives}
@@ -76,7 +78,7 @@ yarn ios         # build iOS
 Ask:
 1. Is the API similar enough for a low-risk migration?
 2. Is the alternative actively maintained?
-3. Does it support the [RN version](./keeping-rn-updated.md) you're targeting?
+3. Does it support the [RN version](./upgrading-react-native.md) you're targeting?
 4. What's the transitive dependency cost?
 
 ## Before Adding a Library {#before-adding-a-library}
@@ -117,8 +119,21 @@ npx react-native-bundle-visualizer
 # ANR rates — check Crashlytics/Play Console over 48-72 hours
 ```
 
-Cross-reference with [ANR Analysis](./anr-analysis.md) to confirm improvements.
+Cross-reference with [Monitoring](./monitoring-anr-analysis.md) to confirm improvements.
 
 ---
 
-**Next**: [Performance Fundamentals](./performance-fundamentals.md) — optimize animations, rendering, and data fetching
+## Example Audit
+
+When auditing your app's dependencies, watch for these common issues:
+- **Outdated native libraries with known crashes** — e.g., `@react-native-picker/picker` has had SIGABRT issues in specific versions; always check for known crash fixes in patch releases
+- **Barely-used heavy libraries** — if a library like FastImage is only used in one place, consider whether the standard `Image` component suffices. Unnecessary image libraries on list screens can be a memory pressure source
+- **No ABI splits configured** — universal APKs bundle all architectures, increasing size unnecessarily
+
+> **See also**: [Profiling: Bundle Size](./profiling-debugging.md#bundle-size) for analysis tools | [SIGABRT guide](./SIGABRT-libc-debugging-guide.md) for memory-reducing swaps
+
+---
+
+> **See also**: [Performance & Rendering](./performance-rendering.md) for optimization patterns after auditing dependencies
+
+**Next**: [Performance & Rendering →](./performance-rendering.md) — optimize animations, rendering, and data fetching

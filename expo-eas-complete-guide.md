@@ -1,3 +1,5 @@
+[← Back to Index](./README.md)
+
 # The Definitive EAS (Expo Application Services) Guide
 
 > A comprehensive reference for React Native / Expo developers covering EAS Build, EAS Submit, EAS Update, config plugins, crash reporting, and more. Last updated: March 2026.
@@ -1913,3 +1915,13 @@ On paid plans, if you exceed your monthly credit allocation:
 ---
 
 *This guide is intended as a reference for React Native / Expo developers. For the most up-to-date information, always check the [official Expo documentation](https://docs.expo.dev/).*
+
+---
+
+## Related Guides
+
+| Guide | Relationship |
+|-------|-------------|
+| [Expo App Config Decision Guide](./expo-app-config-decision-guide.md) | Companion guide — every app.config.ts and eas.json property explained with WHAT/WHY/TRADE-OFFS |
+| [Monitoring & ANR Analysis](./monitoring-anr-analysis.md) | Post-deploy monitoring setup — crash reporting integration with EAS builds |
+| [Upgrading React Native](./upgrading-react-native.md) | Version upgrade strategy that affects EAS build configuration |

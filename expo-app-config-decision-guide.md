@@ -1,3 +1,5 @@
+[← Back to Index](./README.md)
+
 # Expo & EAS Configuration Decision Guide
 
 A comprehensive, decision-oriented guide for React Native / Expo developers. Every configuration option is explained with **what it does**, **why you would change it**, **trade-offs**, and **common mistakes**.
@@ -1962,3 +1964,13 @@ curl -I https://yourapp.com/.well-known/apple-app-site-association
 - [Expo Forums](https://forums.expo.dev/)
 - [EAS Build Changelog](https://expo.dev/changelog)
 - [Expo GitHub Issues](https://github.com/expo/expo/issues)
+
+---
+
+## Related Guides
+
+| Guide | Relationship |
+|-------|-------------|
+| [Expo EAS Complete Guide](./expo-eas-complete-guide.md) | Companion guide — EAS Build, Submit, Update pipeline that uses the configuration documented here |
+| [Dependency Management](./dependency-management.md) | Library audit process — affects expo-build-properties and plugin configuration |
+| [New Architecture Deep Dive](./new-architecture-migration.md) | New Architecture enablement that changes build configuration documented here |
