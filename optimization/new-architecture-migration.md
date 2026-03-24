@@ -8,6 +8,17 @@
 
 ---
 
+<details>
+<summary><strong>TL;DR</strong></summary>
+
+- New Architecture = JSI + Fabric + TurboModules — replaces the async Bridge with synchronous C++ calls
+- Real gains: 17-27% faster cold start, 19-27% faster navigation (measured by A Million Monkeys)
+- Timeline: 3-5 days (small app) to 2-4 weeks (large app); add 30% if >2 versions behind
+- Expect ~3 of 8 native deps to need version upgrades, ~1 to need replacement
+- Rollout gradually: Shopify did 8% → 30% → 100% over 3 days with crash-free thresholds
+
+</details>
+
 ## What Changed
 
 The New Architecture replaces the async JS Bridge with **JSI** (JavaScript Interface) — synchronous, direct JS↔Native communication via C++. No more JSON serialization overhead.

@@ -8,6 +8,17 @@
 
 ---
 
+<details>
+<summary><strong>TL;DR</strong></summary>
+
+- Start at JS layer; if JS thread is idle during slowdown, escalate to native tools
+- Memory: Hermes heap snapshots → Android Studio Profiler / Xcode Leaks → heapprofd
+- CPU: React DevTools Profiler → Hermes CPU Profiler → Perfetto / Xcode Time Profiler
+- Graphics memory is the hidden killer — can spike 7x during scroll without showing in heap profilers
+- Always profile on real devices (especially low-end Android), never just emulators
+
+</details>
+
 ## When Do You Need Profiling?
 
 Not every performance issue requires profiling tools. Use this decision framework to determine when to reach for them — and which layer to target.

@@ -8,6 +8,17 @@
 
 ---
 
+<details>
+<summary><strong>TL;DR</strong></summary>
+
+- Always instrument before optimizing — use Crashlytics or Sentry + Play Console at minimum
+- Segment crashes by app version, OS version, and device model to find patterns
+- Target >99.8% crash-free rate; rollback below 99.0%
+- Monitor fixes for 48-72 hours post-deploy
+- Upload NDK debug symbols for symbolicated native crash traces
+
+</details>
+
 ## Why Analyze First?
 
 Optimizing without data is guesswork. Crash and ANR analysis tells you:

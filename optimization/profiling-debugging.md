@@ -8,6 +8,17 @@
 
 ---
 
+<details>
+<summary><strong>TL;DR</strong></summary>
+
+- Profile first, optimize second — never guess at bottlenecks
+- React DevTools Profiler for re-renders, Hermes Profiler for slow JS, Flashlight for device benchmarks
+- Discord saved 3,500ms TTI with 5 specific fixes (regex, emoji, image loading, dimensions, hidden animation)
+- Flashlight in CI catches performance regressions nightly
+- React Compiler eliminates need for manual useMemo/useCallback (Expo SDK 54+)
+
+</details>
+
 ## The Profiling Stack {#profiling-stack}
 
 ### JS-Level Tools

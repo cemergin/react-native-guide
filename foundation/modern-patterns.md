@@ -8,6 +8,17 @@
 
 ---
 
+<details>
+<summary><strong>TL;DR</strong></summary>
+
+- 2026 default stack: Expo Router + Zustand + TanStack Query + React Hook Form + MMKV + Reanimated
+- Separate state into 3 categories: server (TanStack Query), client (Zustand), form (RHF)
+- Expo Router v4 breaking change: `navigate()` now behaves like `push()`
+- MMKV is 30x faster than AsyncStorage with optional encryption
+- React Compiler (SDK 54+) auto-memoizes — 83% of EAS builds use it
+
+</details>
+
 ## The Modern React Native Stack (2026)
 
 The community has converged on a default stack. If you're starting a new project, this is the baseline:

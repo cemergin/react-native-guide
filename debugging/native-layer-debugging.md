@@ -6,6 +6,17 @@
 
 ---
 
+<details>
+<summary><strong>TL;DR</strong></summary>
+
+- Android: Memory Profiler + CPU Profiler (Android Studio), Perfetto for system traces, heapprofd for native heap
+- iOS: Instruments (Time Profiler, Leaks, Allocations), Memory Graph Debugger for retain cycles
+- Perfetto is best for cold start analysis — shows every thread and process during startup
+- ASan/TSan/UBSan catch memory corruption and threading bugs in native code
+- Flipper is dead (deprecated RN 0.73+) — use React DevTools + platform-native tools
+
+</details>
+
 ## Table of Contents
 
 1. [Getting Started](#1-getting-started)

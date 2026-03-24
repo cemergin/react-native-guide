@@ -10,6 +10,17 @@ to understand what happens beneath the JavaScript layer.
 
 ---
 
+<details>
+<summary><strong>TL;DR</strong></summary>
+
+- React Native has 6 threads: JS, Main/UI, Shadow, Native Modules, Render, and Bridge (old arch)
+- New Architecture (JSI/Fabric/TurboModules) replaces the async Bridge with synchronous C++ calls
+- Hermes compiles JS to bytecode at build time — no JIT, uses GenGC for memory management
+- Android cold start: Zygote → SoLoader → Bridge → JS → Render. iOS: dyld → AppDelegate → RCTBridge → Bundle → Render
+- As of RN 0.82, the old Bridge is fully removed — New Architecture is the only option
+
+</details>
+
 ## Table of Contents
 
 1. [Architecture Overview](#1-architecture-overview)

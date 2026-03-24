@@ -6,6 +6,17 @@
 
 ---
 
+<details>
+<summary><strong>TL;DR</strong></summary>
+
+- 9+ root cause categories for SIGABRT/SIGSEGV: buggy native libs, Hermes, OEM-specific, OOM, R8 over-stripping, and more
+- Decision tree: specific .so file → upgrade library; all versions crash → system update; one OEM → OEM bug
+- Upload NDK debug symbols to get symbolicated native crash traces
+- Run ASan for memory corruption bugs when crash cause is unclear
+- Audit checklist: check picker versions, Reanimated version, navigator lazy mode, background initialization
+
+</details>
+
 ## Quick Reference Card
 
 Before diving into the full guide, here are the **5 most important things to check first** when you encounter a native crash:

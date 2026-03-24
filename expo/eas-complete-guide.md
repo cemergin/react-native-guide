@@ -6,6 +6,17 @@
 
 ---
 
+<details>
+<summary><strong>TL;DR</strong></summary>
+
+- EAS Build: cloud builds for iOS and Android, managed credentials, build profiles for dev/preview/production
+- EAS Submit: automates App Store and Google Play submission
+- EAS Update: OTA updates via channels and branches; use `@expo/fingerprint` to decide OTA vs binary
+- Config Plugins extend native configuration without ejecting (CNG = Continuous Native Generation)
+- Upload debug symbols (Sentry/Crashlytics) for symbolicated crash traces in production
+
+</details>
+
 ## Table of Contents
 
 1. [What is EAS?](#1-what-is-eas)

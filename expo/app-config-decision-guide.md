@@ -8,6 +8,17 @@ This guide covers `app.json` / `app.config.ts`, the `expo-build-properties` plug
 
 ---
 
+<details>
+<summary><strong>TL;DR</strong></summary>
+
+- Every property explained with WHAT/WHY/TRADE-OFFS/MISTAKES framework — not boilerplate, informed decisions
+- iOS: bundleIdentifier, supportsTablet, Universal Links, infoPlist, entitlements
+- Android: package, allowBackup (set false for sensitive apps), adaptive icons, App Links
+- OTA: checkAutomatically options, fallbackToCacheTimeout, runtime version policies
+- Deep linking: custom scheme + Universal Links + App Links complete setup
+
+</details>
+
 ## Table of Contents
 
 1. [Choosing Your Config File Format](#1-choosing-your-config-file-format)

@@ -8,6 +8,17 @@
 
 ---
 
+<details>
+<summary><strong>TL;DR</strong></summary>
+
+- NEVER ship API keys in your JS bundle — even Hermes bytecode is decompilable
+- Use expo-secure-store (Keychain/Keystore) for auth tokens, not AsyncStorage (unencrypted + backed up)
+- Certificate pin your production API to prevent MITM attacks
+- expo-local-authentication for biometric auth (Face ID, Touch ID, Android Biometric Prompt)
+- freeRASP by Talsec for jailbreak/root/Frida/emulator/tamper detection (free, open-source)
+
+</details>
+
 ## The #1 React Native Security Mistake
 
 **Shipping API keys in your JS bundle.** This happens more often than you'd think:

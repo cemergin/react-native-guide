@@ -8,6 +8,17 @@
 
 ---
 
+<details>
+<summary><strong>TL;DR</strong></summary>
+
+- Testing trophy > testing pyramid for React Native — integration tests (RNTL) give best ROI
+- Query by what users see: `getByRole` > `getByText` > `getByTestId` (last resort)
+- Maestro for E2E: YAML-based, <1% flakiness, zero codebase changes, QA testers can write tests
+- Mock native modules in `jest.setup.ts`, create a reusable test harness with providers
+- Run unit+integration on every PR, E2E on merge, Flashlight benchmarks nightly
+
+</details>
+
 ## The Testing Trophy for React Native
 
 The React Native community has converged on Kent C. Dodds' **testing trophy** over the traditional testing pyramid. Integration tests provide the best ROI for mobile apps.

@@ -8,6 +8,17 @@
 
 ---
 
+<details>
+<summary><strong>TL;DR</strong></summary>
+
+- Always use `useNativeDriver: true` for opacity/transform animations; Reanimated for layout animations
+- Replace FlatList with FlashList + `getItemType` for the biggest single list performance win
+- Only `useMemo`/`useCallback` when there's a measurable problem or passing to memoized children
+- Use TanStack Query for API data instead of Redux (auto-caching, background refetch for free)
+- React Compiler (Expo SDK 54+) auto-memoizes at compile time
+
+</details>
+
 ## Animations {#animations}
 
 ### The Problem

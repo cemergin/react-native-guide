@@ -107,6 +107,15 @@ When your app crashes with a `SIGABRT` in `libc.so`, you need to profile a memor
 | [Expo EAS Complete Guide](expo/eas-complete-guide.md) | EAS Build, Submit, Update, Workflows, CI/CD, pricing |
 | [Expo App Config Guide](expo/app-config-decision-guide.md) | Every app.config.ts and eas.json property with WHAT/WHY/TRADE-OFFS |
 
+### Quick Reference
+
+| Resource | What It Is |
+|----------|-----------|
+| [Cheat Sheet](CHEATSHEET.md) | One-page reference — stack, commands, decision matrices, quick wins |
+| [Version Compatibility](VERSION-COMPATIBILITY.md) | Which library versions work together — RN × Expo × dependencies |
+| [Troubleshooting FAQ](TROUBLESHOOTING.md) | Common error messages and their fixes — the 2am debugging companion |
+| [Migration Recipes](MIGRATIONS.md) | Step-by-step: FlatList→FlashList, AsyncStorage→MMKV, Redux→TQ, CodePush→EAS, and more |
+
 ---
 
 ## Reading Flow

@@ -8,6 +8,17 @@
 
 ---
 
+<details>
+<summary><strong>TL;DR</strong></summary>
+
+- 5 layers: try/catch → Error Boundaries → ErrorUtils.setGlobalHandler → react-native-exception-handler → Sentry/Crashlytics
+- No browser refresh in mobile — unhandled render errors crash the entire app
+- Wrap each screen in its own Error Boundary for isolation (one screen crash ≠ whole app crash)
+- Use React Query for API error handling (retry, exponential backoff built-in)
+- Sentry.wrap() your root component + upload source maps for production
+
+</details>
+
 ## The Error Handling Stack
 
 React Native errors come from multiple layers. Each requires a different catching mechanism.

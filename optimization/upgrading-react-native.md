@@ -8,6 +8,17 @@
 
 ---
 
+<details>
+<summary><strong>TL;DR</strong></summary>
+
+- Use react-native-community upgrade-helper for version diffs
+- Don't skip versions — incremental upgrades are easier than big jumps
+- Update third-party libraries after upgrading RN (use `yarn outdated`)
+- Use `patch-package` for libraries that lag behind
+- Monitor crash rates for 48-72 hours post-upgrade
+
+</details>
+
 ## Why Update?
 
 Each React Native release improves:

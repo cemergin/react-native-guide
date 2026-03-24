@@ -8,6 +8,17 @@
 
 ---
 
+<details>
+<summary><strong>TL;DR</strong></summary>
+
+- Every `yarn add` is a long-term commitment — check bundle impact with `yarn why`
+- Run `depcheck` to find unused dependencies (but verify before removing)
+- Key swaps: Moment.js → Day.js (99% smaller), Lodash → native JS, Lottie → Rive (45% smaller)
+- Before adding a library: can you do it in <100 lines? Is it maintained? What's the total bundle cost?
+- Custom code = no surprises, no transitive deps, easier debugging
+
+</details>
+
 ## Why It Matters
 
 Each library you add:
